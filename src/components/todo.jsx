@@ -21,12 +21,14 @@ const Todo = () => {
     }
 
     const delHandler = (id) => {
-        console.log(id);
         const updatedValue = items.filter((ele, ind) => {
             return ind !== id;
         })
         setItems(updatedValue)
+    }
 
+    const deleteAll = () => {
+      setItems([])
     }
 
   return (
@@ -69,7 +71,11 @@ const Todo = () => {
            
           </div>
           <div className="showItems">
-            <button className="btn effect04" data-sm-link-text="Remove All"><span>CHECK LIST</span></button>
+            <button 
+            className="btn effect04" 
+            data-sm-link-text="Remove All"
+            onClick={deleteAll}
+            ><span>CHECK LIST</span></button>
           </div>
         </div>
       </div>
