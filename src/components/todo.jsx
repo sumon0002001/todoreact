@@ -1,7 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import image from '../images/images.png';
 
 const Todo = () => {
+    const [input, setInput] = useState("");
+    const [items, setItems] = useState([]);
+
+
+   const changeHandler = (e) => {
+      let newInput = e.target.value
+      setInput(newInput);
+    }
+
+    const clickHandler = (e) => {
+        console.log(e.target.value);
+
+    }
+
   return (
     <>
       <div className="main-div">
@@ -17,9 +31,14 @@ const Todo = () => {
               type="text" 
               placeholder="✍️ Add item..." 
             //   className="form-control" 
-              value=""
+              value={input}
+              onChange={changeHandler}
             />
-            <i className= "fa fa-plus add-btn" title="add items"></i>
+            <i 
+            className= "fa fa-plus add-btn" 
+            title="add items"
+            onClick={clickHandler}
+            ></i>
           </div>
           <div className="showItems">
             <div className="eachItem">
@@ -31,8 +50,6 @@ const Todo = () => {
             <button className="btn effect04" data-sm-link-text="Remove All"><span>CHECK LIST</span></button>
           </div>
         </div>
-       
-
       </div>
     </>
   )
