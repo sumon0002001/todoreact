@@ -8,11 +8,12 @@ const Todo = () => {
 
    const changeHandler = (e) => {
       let newInput = e.target.value
-      setInput(newInput);
+      setInput([newInput]);
     }
 
-    const clickHandler = (e) => {
-        console.log(e.target.value);
+    const clickHandler = () => {
+        setItems(input)
+        setInput("")
 
     }
 
